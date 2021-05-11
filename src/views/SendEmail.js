@@ -6,7 +6,7 @@ export default function SendEmail() {
   function sendEmail(e) {
     e.preventDefault();
 
-    emailjs.sendForm('service_p35macp', 'template_w7p1eck', e.target, 'user_YHSdXndcblxQC8tJTloNo')
+    emailjs.sendForm('service_p35macp', 'template_w7p1eck', e.target.value, 'user_YHSdXndcblxQC8tJTloNo')
       .then((result) => {
           console.log(result.text);
       }, (error) => {

@@ -15,6 +15,7 @@ import {
 } from "react-bootstrap";
 
 import { AiFillMail } from "react-icons/ai";
+import emailjs from 'emailjs-com';
 
 function getCivilians(){
   const [civilianList, setCivilianList] = React.useState([]);
@@ -46,6 +47,19 @@ const ListOfUsers = () => {
       }  
     });
   }, []);
+  
+  function sendEmail(e) {
+    e.preventDefault();
+    console.log(e.target)
+
+    emailjs.sendForm('service_p35macp', 'template_w7p1eck', e.target, 'user_YHSdXndcblxQC8tJTloNo')
+      .then((result) => {
+          console.log(result.text);
+      }, (error) => {
+          console.log(error.text);
+      });
+      e.target.reset();
+  }
 
   const civil = getCivilians()
   console.log(civil)
@@ -85,7 +99,7 @@ const ListOfUsers = () => {
                           <td>{civilian.email}</td>
                           <td>{civilian.phone_number}</td>
                           <td>{civilian.user_type}</td>
-                          <td><AiFillMail /></td>
+                          <td><form onSubmit={sendEmail}><input style={{display:"none"}} name="user_email" defaultValue={civilian.email}></input><input className="btn btn-primary" type="submit" value="Send" /></form></td>
                           </tr></>);
                       }
                     }) : <tr><td colSpan="6">"No records found"</td></tr>
