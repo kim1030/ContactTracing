@@ -18,7 +18,6 @@
 import Dashboard from "views/Dashboard.js";
 import ListOfUsers from "views/ListOfUsers.js";
 import Trace from "views/Trace.js";
-import SendEmail from "views/SendEmail.js";
 
 const dashboardRoutes = [
   {
@@ -40,13 +39,6 @@ const dashboardRoutes = [
     name: "Trace",
     icon: "nc-icon nc-notes",
     component: Trace,
-    layout: "/admin",
-  },
-  {
-    path: "/sendEmail",
-    name: "sendEmail",
-    icon: "nc-icon nc-notes",
-    component: SendEmail,
     layout: "/admin",
   },
 ];
