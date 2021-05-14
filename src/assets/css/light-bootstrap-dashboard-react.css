@@ -3852,7 +3852,7 @@ License - nucleoapp.com/license/
     justify-content: center;
     align-items: center; }
     .rna-container .alert button.close span {
-      margin-top: -4px; }
+      margin-top: -2px; }
 
 .sidebar[data-color="black"]:after {
   background: #282828;

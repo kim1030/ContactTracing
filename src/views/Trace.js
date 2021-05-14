@@ -31,8 +31,6 @@ const Trace = () => {
   React.useEffect(async ()=>{
 
     async function getVisitedPlace(){
-        
-      
       
       await firebase
       .firestore()
