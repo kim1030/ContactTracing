@@ -219,7 +219,7 @@ const Trace = () => {
                     </Col>
                   </Row>
                   <Row>
-                  <Col className="pr-1" md="4">
+                  {/* <Col className="pr-1" md="4">
                     <Form.Group>
                       <label>Start Date</label>
                       <Form.Control
@@ -242,7 +242,7 @@ const Trace = () => {
                         }}
                       ></Form.Control>
                       </Form.Group>
-                    </Col>
+                    </Col> */}
                   </Row>
               </Form> 
                 <Table className="table-hover">
