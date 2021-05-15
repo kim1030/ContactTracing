@@ -64,7 +64,7 @@ function Sidebar({ color, image, routes }) {
             </div>
           </a>
           <a className="simple-text textLeft" href="#">
-            Hi User {userName}
+            Hi {userName}
           </a>
         </div>
         <Nav>

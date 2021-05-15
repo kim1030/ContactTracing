@@ -94,7 +94,7 @@ function FixedPlugin({
           <li className={image === sideBarImage1 ? "active" : ""}>
             <a
               className="img-holder switch-trigger d-block"
-              href="#pablo"
+              href="#"
               onClick={(e) => {
                 e.preventDefault();
                 setImage(sideBarImage1);
@@ -106,7 +106,7 @@ function FixedPlugin({
           <li className={image === sideBarImage2 ? "active" : ""}>
             <a
               className="img-holder switch-trigger d-block"
-              href="#pablo"
+              href="#"
               onClick={(e) => {
                 e.preventDefault();
                 setImage(sideBarImage2);
@@ -118,7 +118,7 @@ function FixedPlugin({
           <li className={image === sideBarImage3 ? "active" : ""}>
             <a
               className="img-holder switch-trigger d-block"
-              href="#pablo"
+              href="#"
               onClick={(e) => {
                 e.preventDefault();
                 setImage(sideBarImage3);
@@ -130,7 +130,7 @@ function FixedPlugin({
           <li className={image === sideBarImage4 ? "active" : ""}>
             <a
               className="img-holder switch-trigger d-block"
-              href="#pablo"
+              href="#"
               onClick={(e) => {
                 e.preventDefault();
                 setImage(sideBarImage4);

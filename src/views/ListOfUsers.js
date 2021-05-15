@@ -3,11 +3,7 @@ import firebase from "../firebase"
 
 // react-bootstrap components
 import {
-  Badge,
-  Button,
   Card,
-  Navbar,
-  Nav,
   Table,
   Container,
   Row,
@@ -104,6 +100,9 @@ const ListOfUsers = () => {
     firebase.auth().onAuthStateChanged(user => {
       if(user){
           setAccountSignedIn(true);
+      }
+      else{
+        setAccountSignedIn(false);
       }  
     });
   }, []);
@@ -123,7 +122,6 @@ const ListOfUsers = () => {
   }
 
   const civil = getCivilians()
-  console.log(civil)
   return (
     <>
     <div className="rna-container">
@@ -174,10 +172,11 @@ const ListOfUsers = () => {
                           var firstName = (val.first_name?val.first_name:'').toLowerCase();
                           var lastName = (val.last_name?val.last_name:'').toLowerCase();
                           var email = (val.email?val.email:'').toLowerCase();
+                          var uid = (val.uid?val.uid:'').toLowerCase();
                           if(searchText === ""){
                             return val
                           }
-                          else if(firstName.includes(searchText.toLowerCase()) || lastName.includes(searchText.toLowerCase()) || email.includes(searchText.toLowerCase()) ){
+                          else if(firstName.includes(searchText.toLowerCase()) || lastName.includes(searchText.toLowerCase()) || email.includes(searchText.toLowerCase()) || uid.includes(searchText.toLowerCase()) ){
                             return val
                           }
                       })

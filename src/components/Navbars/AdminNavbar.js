@@ -46,15 +46,11 @@ function Header() {
   React.useEffect(() => {
     firebase.auth().onAuthStateChanged(user => {
       if(user){
-          console.log(user);
           setUserName(user.displayName);
           setAccountSignedIn(true);
-
-          console.log(user.displayName);
-          console.log(userName)
       }
       else{
-          console.log(user);
+        defaultState();
       }
       
   });
@@ -136,7 +132,7 @@ function Header() {
             <Nav.Item>
               <Nav.Link
                 data-toggle="dropdown"
-                href="#pablo"
+                href="#"
                 onClick={(e) => e.preventDefault()}
                 className="m-0"
               >
@@ -148,13 +144,13 @@ function Header() {
             <Nav.Item>
             {accountSignedIn ?<Nav.Link
                 className="m-0"
-                href="#pablo"
+                href="#"
                 onClick={(e) => handleLogout(e)}
               >
                 <span className="no-icon">Log out</span>
               </Nav.Link> : <Nav.Link
                 className="m-0"
-                href="#pablo"
+                href="#"
                 onClick={() => setShowModal(true)}
               >
                 <span className="no-icon">Log in</span>
