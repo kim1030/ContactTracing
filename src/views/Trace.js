@@ -173,18 +173,13 @@ const Trace = () => {
   function setDateEndChanger(val){
     var date = new Date(val);
     var seconds = date.getTime() / 1000; 
-
-    console.log("end",seconds)
-
-    setDateEnd(seconds);
+    setDateEnd(parseInt(seconds));
   }
 
   function setDateStartChanger(val){
     var date = new Date(val);
     var seconds = date.getTime() / 1000; 
-
-    setDateStart(seconds);
-    console.log("start",seconds)
+    setDateStart(parseInt(seconds));
   }
 
   return (
@@ -219,11 +214,11 @@ const Trace = () => {
                     </Col>
                   </Row>
                   <Row>
-                  {/* <Col className="pr-1" md="4">
+                  <Col className="pr-1" md="4">
                     <Form.Group>
                       <label>Start Date</label>
                       <Form.Control
-                        type="date"
+                        type="datetime-local"
                         onChange={(event)=>{
                           setDateStartChanger(event.target.value);
                           
@@ -236,13 +231,13 @@ const Trace = () => {
                     <Form.Group>
                       <label>End Date</label>
                       <Form.Control
-                        type="date"
+                        type="datetime-local"
                         onChange={(event)=>{
                           setDateEndChanger(event.target.value);
                         }}
                       ></Form.Control>
                       </Form.Group>
-                    </Col> */}
+                    </Col>
                   </Row>
               </Form> 
                 <Table className="table-hover">
@@ -264,18 +259,26 @@ const Trace = () => {
                         var visitedFullName = (val.full_name? val.full_name: '').toLowerCase();
                         var visitedTime = (val.time_visited ? val.time_visited: '').toLowerCase();
                         var visitedTimeSeconds = (val.time_visited_seconds ? val.time_visited_seconds: '');
-
-                        if(searchText === ""){
-                          // console.log("start",dateStart, "end",dateEnd)
-                          // console.log(parseInt(dateStart) >= parseInt(visitedTimeSeconds))
-                          // console.log(parseInt(dateEnd) <= parseInt(visitedTimeSeconds))
-                          return val;
                         
-                         
+                        if(searchText === ""){
+                          if(parseInt(dateStart) <= parseInt(visitedTimeSeconds)){
+                            console.log("pass here date start")
+                            return val;
+                          }
+                          else if(parseInt(dateEnd) >= parseInt(visitedTimeSeconds) && parseInt(dateStart) <= parseInt(visitedTimeSeconds)){
+                            console.log("pass here date end")
+                            return val;
+                          }
                         }
                         else if(visitedPlace.includes(searchText.toLowerCase()) || visitedEmail.includes(searchText.toLowerCase()) || visitedTime.includes(searchText.toLowerCase()) || visitedFullName.includes(searchText.toLowerCase())){
-                          return val;
-
+                          if(parseInt(dateStart) <= parseInt(visitedTimeSeconds)){
+                            console.log("pass here date start")
+                            return val;
+                          }
+                          else if(parseInt(dateEnd) >= parseInt(visitedTimeSeconds) && parseInt(dateStart) <= parseInt(visitedTimeSeconds)){
+                            console.log("pass here date end")
+                            return val;
+                          }
                         }
                        
                       })
