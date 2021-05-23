@@ -92,7 +92,6 @@ const Trace = () => {
 
     emailjs.sendForm('service_p35macp', 'template_w7p1eck', e.target, 'user_YHSdXndcblxQC8tJTloNo')
       .then((result) => {
-          console.log(result.text);
           notify("tr");
       }, (error) => {
           console.log(error.text);
@@ -262,21 +261,17 @@ const Trace = () => {
                         
                         if(searchText === ""){
                           if(parseInt(dateStart) <= parseInt(visitedTimeSeconds)){
-                            console.log("pass here date start")
                             return val;
                           }
                           else if(parseInt(dateEnd) >= parseInt(visitedTimeSeconds) && parseInt(dateStart) <= parseInt(visitedTimeSeconds)){
-                            console.log("pass here date end")
                             return val;
                           }
                         }
                         else if(visitedPlace.includes(searchText.toLowerCase()) || visitedEmail.includes(searchText.toLowerCase()) || visitedTime.includes(searchText.toLowerCase()) || visitedFullName.includes(searchText.toLowerCase())){
                           if(parseInt(dateStart) <= parseInt(visitedTimeSeconds)){
-                            console.log("pass here date start")
                             return val;
                           }
                           else if(parseInt(dateEnd) >= parseInt(visitedTimeSeconds) && parseInt(dateStart) <= parseInt(visitedTimeSeconds)){
-                            console.log("pass here date end")
                             return val;
                           }
                         }
